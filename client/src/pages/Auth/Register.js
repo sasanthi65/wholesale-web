@@ -100,13 +100,13 @@ export const Register = () => {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
-              id="exampleInputPhone"
+              id="exampleInputAnswer"
               placeholder="What is your favorite song?"
               required
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Register
+            REGISTER
           </button>
         </form>
       </div>

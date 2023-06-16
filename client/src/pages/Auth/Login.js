@@ -79,7 +79,7 @@ export const Login = () => {
             </button>
           </div>
           <button type="submit" className="btn btn-primary">
-            Login
+            LOGIN
           </button>
         </form>
       </div>
