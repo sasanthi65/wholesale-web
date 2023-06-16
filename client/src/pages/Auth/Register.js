@@ -11,6 +11,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
 
   // form function
@@ -19,7 +20,7 @@ export const Register = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        { name, email, password, address, phone }
+        { name, email, password, address, phone, answer }
       );
       if (res.data.success) {
         toast.success(res.data.message);
@@ -90,6 +91,17 @@ export const Register = () => {
               className="form-control"
               id="exampleInputPhone"
               placeholder="Enter your contact number"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              className="form-control"
+              id="exampleInputPhone"
+              placeholder="What is your favorite song?"
               required
             />
           </div>
