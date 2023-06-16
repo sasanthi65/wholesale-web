@@ -4,10 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
+import { useAuth } from "../../context/auth";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
 
@@ -19,8 +21,14 @@ export const Login = () => {
         `${process.env.REACT_APP_API}/api/v1/auth/login`,
         { email, password }
       );
-      if (res.data.success) {
-        toast.success(res.data.message);
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
       } else {
         toast.success(res.data.message);
