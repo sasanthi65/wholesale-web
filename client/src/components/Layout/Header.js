@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { BsShopWindow } from "react-icons/bs";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
+import SearchInput from "../Form/SearchInput";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -35,6 +36,7 @@ const Header = () => {
               <BsShopWindow /> Retail Shop
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
                   Home
@@ -106,16 +108,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-  /* <li className="nav-item">
-                <NavLink to="/register" className="nav-link">
-                  Register
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/login" className="nav-link">
-                  Login
-                </NavLink>
-              </li> */
-}
