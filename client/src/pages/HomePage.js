@@ -2,12 +2,31 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useAuth } from "../context/auth";
+import { Checkbox, Radio } from "antd";
 
 const HomePage = () => {
-  const [auth, setAuth] = useAuth();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [checked, setChecked] = useState([]);
+
+  //get all categories
+  const getAllCategory = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
+      if (data?.success) {
+        setCategories(data?.category);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllCategory();
+    // getTotal();
+  }, []);
 
   //get products
   const getAllProducts = async () => {
@@ -21,6 +40,17 @@ const HomePage = () => {
     }
   };
 
+  //filter by category
+  const handleFilter = (value, id) => {
+    let all = [...checked];
+    if (value) {
+      all.push(id);
+    } else {
+      all = all.filter((c) => c !== id);
+    }
+    setChecked(all);
+  };
+
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -28,13 +58,23 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="row mt-3">
-        <div className="col-md-3">
+        <div className="col-md-2">
           <h4 className="text-center">Filter by Category</h4>
+          <div className="d-flex flex-column">
+            {categories?.map((c) => (
+              <Checkbox
+                key={c._id}
+                onChange={(e) => handleFilter(e.target.checked, c._id)}
+              >
+                {c.name}
+              </Checkbox>
+            ))}
+          </div>
         </div>
         <div className="col-md-9">
+          {JSON.stringify(checked, null, 4)}
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
-            {/* <h1>Products</h1> */}
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
                 <img
