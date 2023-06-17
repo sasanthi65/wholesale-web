@@ -3,11 +3,13 @@ import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Checkbox, Radio } from "antd";
+import { Prices } from "../components/Prices";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
+  const [radio, setRadio] = useState([]);
 
   //get all categories
   const getAllCategory = async () => {
@@ -59,6 +61,7 @@ const HomePage = () => {
     <Layout>
       <div className="row mt-3">
         <div className="col-md-2">
+          {/* category filter */}
           <h4 className="text-center">Filter by Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
@@ -70,9 +73,22 @@ const HomePage = () => {
               </Checkbox>
             ))}
           </div>
+
+          {/* price filter */}
+          <h4 className="text-center mt-4">Filter by Price</h4>
+          <div className="d-flex flex-column">
+            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+              {Prices?.map((p) => (
+                <div key={p._id}>
+                  <Radio value={p.array}>{p.name}</Radio>
+                </div>
+              ))}
+            </Radio.Group>
+          </div>
         </div>
+
         <div className="col-md-9">
-          {JSON.stringify(checked, null, 4)}
+          {JSON.stringify(radio, null, 4)}
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
