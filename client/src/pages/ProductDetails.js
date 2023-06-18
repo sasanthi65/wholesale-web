@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(0);
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -62,7 +63,16 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1">ADD TO CART</button>
+          <input
+            type="text"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            className="form-control"
+            id="exampleInputQuantity"
+            placeholder="Enter quantity needed"
+            required
+          />
+          <button class="btn btn-secondary ms-1 m-2">ADD TO CART</button>
         </div>
       </div>
       <hr />
