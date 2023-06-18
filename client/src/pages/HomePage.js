@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
+import "../styles/HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -121,8 +122,8 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <div className="row mt-3">
-        <div className="col-md-2">
+      <div className="container-fluid row mt-3 home-page">
+        <div className="col-md-3 filters">
           {/* category filter */}
           <h4 className="text-center">Filter by Category</h4>
           <div className="d-flex flex-column">
@@ -158,7 +159,6 @@ const HomePage = () => {
         </div>
 
         <div className="col-md-9">
-          {JSON.stringify(radio, null, 4)}
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
@@ -169,28 +169,33 @@ const HomePage = () => {
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">Rs. {p.price}</p>
-                  <button
-                    class="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More details
-                  </button>
-                  {/* Add to Cart */}
-                  <button
-                    class="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item added to cart");
-                    }}
-                  >
-                    Add to Cart
-                  </button>
+                  <div className="card-name-price">
+                    <h5 className="card-title">{p.name}</h5>
+                    <p className="card-title card-price">Rs. {p.price}</p>
+                  </div>
+
+                  <div className="card-name-price">
+                    <button
+                      class="btn btn-primary ms-1"
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                    >
+                      More details
+                    </button>
+                    {/* Add to Cart */}
+                    <button
+                      class="btn btn-secondary ms-1"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item added to cart");
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
