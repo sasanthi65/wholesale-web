@@ -3,11 +3,15 @@ import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ProductDetailsStyles.css";
+import { useCart } from "../context/cart";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(0);
+  const [cart, setCart] = useCart();
+  // const [subtotal, setSubTotal] = useState();
+  const [quantity, setQuantity] = useState();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -38,6 +42,15 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
+  // const addToCart = (product, quantity) => {
+  //   let subtotal = product.price * quantity;
+  //   setCart([...cart, product, subtotal]);
+  //   localStorage.setItem(
+  //     "cart",
+  //     JSON.stringify([...cart, product, quantity, subtotal])
+  //   );
+  // };
+
   return (
     <Layout>
       <div className="row container product-details">
@@ -46,7 +59,7 @@ const ProductDetails = () => {
             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
-            height="600"
+            height="450"
             width={"350px"}
           />
         </div>
@@ -63,16 +76,33 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
-          <input
-            type="text"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            className="form-control"
-            id="exampleInputQuantity"
-            placeholder="Enter quantity needed"
-            required
-          />
-          <button class="btn btn-secondary ms-1 m-2">ADD TO CART</button>
+          {/* <div className="mb-3">
+            <input
+              type="number"
+              value={quantity}
+              placeholder="write a quantity"
+              className="form-control"
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+            />
+          </div> */}
+          {/* <button
+            className="btn btn-dark ms-1"
+            onClick={() => addToCart(product, quantity)}
+          >
+            ADD TO CART
+          </button> */}
+          <button
+            className="btn btn-dark ms-1"
+            onClick={() => {
+              setCart([...cart, product]);
+              localStorage.setItem("cart", JSON.stringify([...cart, product]));
+              toast.success("Item Added to cart");
+            }}
+          >
+            ADD TO CART
+          </button>
         </div>
       </div>
       <hr />
@@ -109,6 +139,19 @@ const ProductDetails = () => {
                   >
                     More Details
                   </button>
+                  {/* <button
+                    className="btn btn-dark ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                  >
+                    ADD TO CART
+                  </button> */}
                 </div>
               </div>
             </div>
