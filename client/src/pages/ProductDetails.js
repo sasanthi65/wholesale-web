@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
   // const [subtotal, setSubTotal] = useState();
-  const [quantity, setQuantity] = useState();
+  // const [quantity, setQuantity] = useState();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
