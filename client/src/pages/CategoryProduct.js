@@ -54,6 +54,7 @@ const CategoryProduct = () => {
                     <p className="card-text ">
                       {p.description.substring(0, 60)}...
                     </p>
+                    <p className="card-text ">Qty: {p.quantity}</p>
                     <div className="card-name-price">
                       <button
                         className="btn btn-info ms-1"

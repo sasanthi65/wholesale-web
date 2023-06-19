@@ -173,7 +173,7 @@ const HomePage = () => {
                     <h5 className="card-title">{p.name}</h5>
                     <p className="card-title card-price">Rs. {p.price}</p>
                   </div>
-
+                  <p className="card-text p-2">Qty: {p.quantity}</p>
                   <div className="card-name-price">
                     <button
                       class="btn btn-primary ms-1"

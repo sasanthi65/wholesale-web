@@ -27,7 +27,8 @@ const Search = () => {
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text"> $ {p.price}</p>
+                  <p className="card-text">Rs.{p.price}</p>
+                  <p className="card-text">Qty:{p.quantity}</p>
                   <button class="btn btn-primary ms-1">More Details</button>
                   <button class="btn btn-secondary ms-1">ADD TO CART</button>
                 </div>
