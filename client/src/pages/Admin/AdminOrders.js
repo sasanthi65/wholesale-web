@@ -12,8 +12,8 @@ const AdminOrders = () => {
   const [status, setStatus] = useState([
     "Not Process",
     "Processing",
-    "delivered",
-    "cancel",
+    "Delivered",
+    "Cancel",
   ]);
   const [changeStatus, setChangeStatus] = useState("");
   const [orders, setOrders] = useState([]);

@@ -67,6 +67,10 @@ export const Login = () => {
               required
             />
           </div>
+
+          <button type="submit" className="btn btn-primary mb-2">
+            Login
+          </button>
           <div className="mb-3">
             <button
               type="submit"
@@ -78,9 +82,6 @@ export const Login = () => {
               Forgot Password
             </button>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
         </form>
       </div>
     </Layout>

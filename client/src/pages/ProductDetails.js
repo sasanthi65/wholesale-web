@@ -139,6 +139,19 @@ const ProductDetails = () => {
                   >
                     More Details
                   </button>
+                  <button
+                    className="btn btn-dark ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                  >
+                    ADD TO CART
+                  </button>
                   {/* <button
                     className="btn btn-dark ms-1"
                     onClick={() => {
