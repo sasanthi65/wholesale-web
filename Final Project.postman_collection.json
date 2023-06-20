@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "24c95c17-4082-42de-a640-122f463a778a",
 		"name": "Final Project",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "23643994"
 	},
 	"item": [
@@ -16,27 +16,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"123456\",\r\n    \"phone\":\"0111234567\",\r\n    \"address\":\"Colombo\"\r\n}",
+							"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test@test.com\",\r\n    \"password\":\"123456\",\r\n    \"phone\":\"0111234567\",\r\n    \"address\":\"Colombo\",\r\n    \"answer\":\"spring day\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/register",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"register"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/register"
 					},
 					"response": []
 				},
@@ -54,20 +41,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"login"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/login"
 					},
 					"response": []
 				},
@@ -78,27 +52,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"answer\": \"Midnight Rain\",\r\n    \"email\": \"user@user.com\",\r\n    \"newPassword\": \"user1234\"\r\n}",
+							"raw": "{\r\n    \"answer\": \"The Shire\",\r\n    \"email\": \"user@user.com\",\r\n    \"newPassword\": \"user1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/forgot-password",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"forgot-password"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/forgot-password"
 					},
 					"response": []
 				},
@@ -112,7 +73,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjOWQxYjYxMjVkODkxNTJjNDFhZGYiLCJpYXQiOjE2ODcxODUwODgsImV4cCI6MTY4Nzc4OTg4OH0.N81IFiBycg36xyfrpHGbcAQov-L0Am7nbcljtHulVtE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdhOTU3ZWQ2MzJjZDVmZjgzMmUiLCJpYXQiOjE2ODcyODM4MTYsImV4cCI6MTY4Nzg4ODYxNn0.SOgFyqGC99ETLByhZmFaKgzwuYxo9KK4kICxFptuvdY",
 								"type": "text"
 							}
 						],
@@ -125,20 +86,34 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/user-auth",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"user-auth"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/user-auth"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Admin Authorization",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/auth/admin-auth"
 					},
 					"response": []
 				},
@@ -149,7 +124,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjOWQxYjYxMjVkODkxNTJjNDFhZGYiLCJpYXQiOjE2ODcxODUwODgsImV4cCI6MTY4Nzc4OTg4OH0.N81IFiBycg36xyfrpHGbcAQov-L0Am7nbcljtHulVtE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdhOTU3ZWQ2MzJjZDVmZjgzMmUiLCJpYXQiOjE2ODcyODM4MTYsImV4cCI6MTY4Nzg4ODYxNn0.SOgFyqGC99ETLByhZmFaKgzwuYxo9KK4kICxFptuvdY",
 								"type": "text"
 							}
 						],
@@ -162,20 +137,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/profile",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"profile"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/profile"
 					},
 					"response": []
 				},
@@ -190,65 +152,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/orders",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"orders"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Admin",
-			"item": [
-				{
-					"name": "Check Admin Authorization",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/admin-auth",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"admin-auth"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/orders"
 					},
 					"response": []
 				},
@@ -259,24 +163,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/all-orders",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"all-orders"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/all-orders"
 					},
 					"response": []
 				},
@@ -287,7 +178,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
@@ -300,21 +191,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/auth/order-status/648f6a864b3728e2c59bd00a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"order-status",
-								"648f6a864b3728e2c59bd00a"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/auth/order-status/648f6a864b3728e2c59bd00a"
 					},
 					"response": []
 				}
@@ -324,94 +201,13 @@
 			"name": "Product",
 			"item": [
 				{
-					"name": "Get All Products",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/get-product",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"get-product"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Single Product",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/get-product/Highland-Curd-Plastic-Container-500ml",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"get-product",
-								"Highland-Curd-Plastic-Container-500ml"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create Product",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
@@ -420,56 +216,37 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Araliya Premium Samba Rice 5kg",
+									"value": "CIRIO Pasta Sauce Basil Sauce 420g",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Araliya Premium Samba Rice 5kg is an outcome of the complete milling process. During this manufacturing process the whole outer layer of the grain of rice is removed and polished, retaining only the white inner part of the grain. Due to the removal of outer bran and germ of the seed, White Rice becomes less healthy than Brown Rice but becomes easier to digest.",
+									"value": "CIRIO Pasta Sauce Basil Sauce 420g is a delicious and authentic Italian sauce made with the finest, high-quality ingredients. This sauce is packed with the freshest and most flavorful basil leaves, along with ripe, juicy tomatoes, and a blend of herbs and spices, providing a rich and aromatic taste that’s hard to resist.",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "100",
+									"value": "25",
 									"type": "text"
 								},
 								{
 									"key": "category",
-									"value": "648dbc8c4eb2f3a63e6a3347",
+									"value": "6491ea9cb4a00eedb0381d12",
 									"type": "text"
 								},
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/C:/Users/SASANTHI/Downloads/1665383305_Araliya20Premium20Samba20Rice205kg.png"
+									"src": "/C:/Users/SASANTHI/Downloads/Cirio-Pasta-Sauce-Basil-Sauce-420g.png"
 								},
 								{
 									"key": "price",
-									"value": "1145",
-									"type": "text"
-								},
-								{
-									"key": "shipping",
-									"value": "yes",
+									"value": "25000",
 									"type": "text"
 								}
 							]
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/create-product/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"create-product",
-								""
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/create-product/"
 					},
 					"response": []
 				},
@@ -480,7 +257,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
@@ -489,67 +266,51 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Highland Curd Plastic Container 500ml",
+									"value": "CIRIO Pasta Sauce Basil Sauce 420g",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Highland Curd is a delicious, creamy cottage cheese made from fresh milk sourced from local farms. Rich in protein and calcium, it is a healthy and versatile ingredient for cooking and baking. Perfect for spreading on toast, mixing into salads, or using as a base for dips and spreads, Highland Curd is a tasty and nutritious choice for any meal.",
+									"value": "CIRIO Pasta Sauce Basil Sauce 420g is a delicious and authentic Italian sauce made with the finest, high-quality ingredients. This sauce is packed with the freshest and most flavorful basil leaves, along with ripe, juicy tomatoes, and a blend of herbs and spices, providing a rich and aromatic taste that’s hard to resist.",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "5",
+									"value": "40",
 									"type": "text"
 								},
 								{
 									"key": "category",
-									"value": "648d64ba6a3b5b5096944ccd",
+									"value": "6491ea9cb4a00eedb0381d12",
 									"type": "text"
 								},
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/C:/Users/SASANTHI/Downloads/HIGHLAND-CURD-PLASTIC-CONTAINER-500-ML-1.png"
+									"src": "/C:/Users/SASANTHI/Downloads/Cirio-Pasta-Sauce-Basil-Sauce-420g.png"
 								},
 								{
 									"key": "price",
-									"value": "300",
-									"type": "text"
-								},
-								{
-									"key": "shipping",
-									"value": "yes",
+									"value": "41000",
 									"type": "text"
 								}
 							]
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/update-product/648d7c98c86b8ab95ccf40eb",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"update-product",
-								"648d7c98c86b8ab95ccf40eb"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/update-product/6491ece1b4a00eedb0381d35"
 					},
 					"response": []
 				},
 				{
-					"name": "Get Product Photo",
+					"name": "Get All Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "DELETE",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
@@ -562,21 +323,74 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/delete-product/648d739cb157b6cd9933fd20",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"delete-product",
-								"648d739cb157b6cd9933fd20"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/get-product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/product/get-product/Araliya-Premium-Samba-Rice-5kg"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Photo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:8080/api/v1/product/product-photo/6491ece1b4a00eedb0381d35"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/product/delete-product/6491d5b757ed632cd5ff8372"
 					},
 					"response": []
 				},
@@ -587,27 +401,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"checked\": [\"648dbc8c4eb2f3a63e6a3347\", \"648dbb044eb2f3a63e6a333f\"],\r\n    \"0\": \"648dbc8c4eb2f3a63e6a3347\",\r\n    \"1\": \"648dbb044eb2f3a63e6a333f\",\r\n    \"radio\": [1000,1999]\r\n}",
+							"raw": "{\r\n    \"checked\": [\"6491ed38b4a00eedb0381d53\"], \r\n    \"radio\": [2000, 49]\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/product-filters",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"product-filters"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/product-filters"
 					},
 					"response": []
 				},
@@ -634,20 +435,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/product-count",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"product-count"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/product-count"
 					},
 					"response": []
 				},
@@ -674,21 +462,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/product-list/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"product-list",
-								"2"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/product-list/2"
 					},
 					"response": []
 				},
@@ -715,21 +489,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/search/Rice",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"search",
-								"Rice"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/search/sauce"
 					},
 					"response": []
 				},
@@ -756,22 +516,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/related-product/648dda614ae43651fe31f7b5/648dbc8c4eb2f3a63e6a3347",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"related-product",
-								"648dda614ae43651fe31f7b5",
-								"648dbc8c4eb2f3a63e6a3347"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/related-product/6491ece1b4a00eedb0381d35/6491ea9cb4a00eedb0381d12"
 					},
 					"response": []
 				},
@@ -798,21 +543,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product/product-category/dairy-products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"product-category",
-								"dairy-products"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product/product-category/sauces"
 					},
 					"response": []
 				},
@@ -826,7 +557,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdhOTU3ZWQ2MzJjZDVmZjgzMmUiLCJpYXQiOjE2ODcyODM4MTYsImV4cCI6MTY4Nzg4ODYxNn0.SOgFyqGC99ETLByhZmFaKgzwuYxo9KK4kICxFptuvdY",
 								"type": "text"
 							}
 						],
@@ -839,22 +570,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/product//braintree/token",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"product",
-								"",
-								"braintree",
-								"token"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/product//braintree/token"
 					},
 					"response": []
 				}
@@ -886,20 +602,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/category/get-category",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"category",
-								"get-category"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/category/get-category"
 					},
 					"response": []
 				},
@@ -926,21 +629,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/category/single-category/rice",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"category",
-								"single-category",
-								"rice"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/category/single-category/rice"
 					},
 					"response": []
 				},
@@ -951,33 +640,20 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"dairy products\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Sauces\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/category/create-category",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"category",
-								"create-category"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/category/create-category"
 					},
 					"response": []
 				},
@@ -988,35 +664,20 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5ODc2ODUsImV4cCI6MTY4NzU5MjQ4NX0.49TjoMUupQBqKhBhCjuPtgFBTWPS3j509x6df_BPkKQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyNzg3MjIsImV4cCI6MTY4Nzg4MzUyMn0.a_QjBN1Ui3iW8l8tTvqznXeygHijSRLGr_2m1wOomFs",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"rice\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Dairy Products\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/category//update-category/648cc76d7004a76b1f310cdf",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"category",
-								"",
-								"update-category",
-								"648cc76d7004a76b1f310cdf"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/category//update-category/6491d4e857ed632cd5ff8369"
 					},
 					"response": []
 				},
@@ -1027,7 +688,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhjYWE4YTYxMjVkODkxNTJjNDFhZTYiLCJpYXQiOjE2ODY5NDc2NDUsImV4cCI6MTY4NzU1MjQ0NX0.tprskkNAkVXtk87tdXIc02SF0KrcU_iahfpv6fERG90",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDkxYjdmNzU3ZWQ2MzJjZDVmZjgzM2YiLCJpYXQiOjE2ODcyODM1MjksImV4cCI6MTY4Nzg4ODMyOX0.Cbn_1R86u3Vyw9oJ3L8xKnHRAN5Ac0K8UrX7Q7Egiv0",
 								"type": "text"
 							}
 						],
@@ -1040,21 +701,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/category/delete-category/648cc76d7004a76b1f310cdf",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"category",
-								"delete-category",
-								"648cc76d7004a76b1f310cdf"
-							]
-						}
+						"url": "http://localhost:8080/api/v1/category/delete-category/6491d5a057ed632cd5ff836f"
 					},
 					"response": []
 				}
@@ -1071,20 +718,7 @@
 						"type": "text"
 					}
 				],
-				"url": {
-					"raw": "http://localhost:8080/api/v1/auth/test",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"test"
-					]
-				}
+				"url": "http://localhost:8080/api/v1/auth/test"
 			},
 			"response": []
 		}
