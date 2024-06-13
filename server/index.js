@@ -20,8 +20,8 @@ const app = express();
 //middleware
 app.use(cors(
   {
-    origin:["https://wholesale-web.vercel.app"],
-    method:["POST","GET", "PUT", "POST", "DELETE"],
+    origin:"https://wholesale-web.vercel.app",
+    method:["POST","GET", "PUT","PATCH" "DELETE"],
     credentials: true
   }
 ));
