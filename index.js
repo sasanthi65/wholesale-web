@@ -21,7 +21,7 @@ const app = express();
 app.use(cors(
   {
     origin:["https://wholesale-web.vercel.app"],
-    method:["POST","GET"],
+    method:["POST","GET","PUT","DELETE","POST"],
     credentials: true
   }
 ));
